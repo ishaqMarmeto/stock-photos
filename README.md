@@ -132,6 +132,3 @@ This application allows users to search for photos using the Pexels API, view si
 - **Pexels API**: For fetching images.
 - **FontAwesome**: For icons.
 - **Tailwind CSS**: For utility-first CSS styling.
-
-### Conclusion
-This pseudocode provides a detailed structure of the application, ensuring a clear understanding of the project flow and implementation details. The application integrates the Pexels API for photo searching, utilizes Splide.js for the carousel functionality, and implements responsive design to cater to different screen sizes.
