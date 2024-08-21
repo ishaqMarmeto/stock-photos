@@ -51,57 +51,59 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <div class="container">
 
             <div class="movie-dashboard">
-      <header class="header">
-        <!-- <img class="logo-img" src= /> -->
-         <div class="sale-cont"><h4>SUPER SALE UP TO 40% OFF</h4></div>
-         <div class="nav-cont">
-            <ul class="flex">
-                <li class="mr-2">SHOP</li>
-                <li>COMMUNITY</li>
-            </ul>
-            <img class="logo-img" src="./images/logo.png"/>
-            <ul class="flex">
-                <li class="mr-2"><i class="fa-regular fa-user"></i></li>
-                <li class="mr-2"><i class="fa-solid fa-magnifying-glass"></i></li>
-                <li><i class="fa-solid fa-cart-shopping"></i></li>
-            </ul>
-        </div>
-      </header>
-      <div class="poster-section">
-        <img class="poster-img" src="./images/Poster.png" />
-        <div class="poster-content">
-          <h1 class="poster-heading">Stock Photoes</h1>
-          <p class="poster-description">
-            John Wick is on the run after killing a member of the international
-            assassins' guild, and with a $14 million price tag on his head, he
-            is the target of hit men and women everywhere.
-          </p>
-          <button class="poster-watch-button">
-            <img
-              class="poster-watch-button-play-icon"
-              src="./images/play icon.png"
-            />Explore
-          </button>
-        </div>
-      </div>
-      </div>
-        <h1>Pexels Photo Search</h1>
+                <header class="header">
+                    <!-- <img class="logo-img" src= /> -->
+                    <div class="sale-cont"><h4>SUPER SALE UP TO 40% OFF</h4></div>
+                    <div class="nav-cont">
+                        <ul class="flex">
+                            <li class="mr-2">SHOP</li>
+                            <li>COMMUNITY</li>
+                        </ul>
+                        <img class="logo-img" src="./images/logo.png"/>
+                        <ul class="flex">
+                            <li class="mr-2"><i class="fa-regular fa-user"></i></li>
+                            <li class="mr-2"><i class="fa-solid fa-magnifying-glass"></i></li>
+                            <li><i class="fa-solid fa-cart-shopping"></i></li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="poster-section">
+                    <!-- <img class="poster-img" src="./images/Poster.png" /> -->
+                    <div class="poster-content">
+                        <h1 class="poster-heading">Stock Photoes</h1>
+                        <p class="poster-description">
+                        John Wick is on the run after killing a member of the international
+                        assassins' guild, and with a $14 million price tag on his head, he
+                        is the target of hit men and women everywhere.
+                        </p>
+                        <button class="poster-watch-button">
+                            <img
+                            class="poster-watch-button-play-icon"
+                            src="./images/play icon.png"
+                            />Explore
+                        </button>
+                    </div>
+                </div>
+
+            </div>
 
         <!-- Search Input -->
-        <input type="text" id="searchInput" placeholder="Search for photos...">
-        <button id="searchButton">Search</button>
+         <div class="flex mb-2 "> 
+            <input type="text" id="searchInput" placeholder="Search for photos...">
+            <button class="poster-watch-button m-2" id="searchButton">Search</button>
+        </div>
+        
 
         <!-- First Result Section -->
         <div id="firstResult" class="first-result">
-            <h2>Top Result</h2>
             <img id="firstResultImage" alt="First Result">
             <p id="firstResultPhotographer" style="display: none;"></p>
-            <button id="showAuthorButton">Show Author Details</button>
+            <button  id="showAuthorButton">Show Author Details</button>
         </div>
 
         <!-- Splide Section for Similar Results -->
         <div id="splide" class="splide">
-            <h2>Similar Results</h2>
+            <h2 class="font-bold">Similar Results</h2>
             <div class="splide__track">
                 <ul class="splide__list" id="resultsContainer"></ul>
             </div>
@@ -109,7 +111,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
         <!-- Wishlist Section -->
         <div id="wishlistContainer" class="wishlist">
-            <h2>Favorites</h2>
+            <h2 class="font-bold">Favorites</h2>
             <div class="wishlist-items" id="wishlistItems"></div>
         </div>
     </div>

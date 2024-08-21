@@ -1,49 +1,3 @@
-// document.getElementById('searchButton').addEventListener('click', () => {
-//     const query = document.getElementById('searchInput').value;
-
-//     if (query.trim() === '') {
-//         alert('Please enter a search term.');
-//         return;
-//     }
-
-//     fetchPhotos(query);
-// });
-
-// async function fetchPhotos(query) {
-//     const apiKey = 'qfEyIFUyWWsdKEwTODcVWz9HaHyrM7d2ldX2qEL5NghvtPL41A7tQQxg';
-//     const url = `https://api.pexels.com/v1/search?query=${query}&per_page=12`;
-
-//     try {
-//         const response = await fetch(url, {
-//             headers: {
-//                 Authorization: apiKey
-//             }
-//         });
-
-//         if (!response.ok) {
-//             throw new Error('Failed to fetch photos');
-//         }
-
-//         const data = await response.json();
-//         displayPhotos(data.photos);
-//     } catch (error) {
-//         console.error('Error:', error);
-//         alert('Error fetching photos');
-//     }
-// }
-
-// function displayPhotos(photos) {
-//     const resultsDiv = document.getElementById('results');
-//     resultsDiv.innerHTML = '';
-
-//     photos.forEach(photo => {
-//         const img = document.createElement('img');
-//         img.src = photo.src.medium;
-//         img.alt = photo.photographer;
-//         resultsDiv.appendChild(img);
-//     });
-// }
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -138,13 +92,14 @@ function displayResults(photos) {
 
         const heartButton = document.createElement('button');
         heartButton.className = 'heart-button';
-        heartButton.innerHTML = '❤️';
-        heartButton.addEventListener('click', () => {
-            addToWishlist(photo, li);
-        });
+        heartButton.innerHTML = '<i class="fa fa-heart-o" style="font-size:24px"></i>';
+        
 
         li.appendChild(img);
         li.appendChild(heartButton);
+        heartButton.addEventListener('click', () => {
+            addToWishlist(photo, li);
+        });
         resultsContainer.appendChild(li);
     });
 
@@ -152,7 +107,7 @@ function displayResults(photos) {
         type   : 'loop',
         perPage: 3,
         focus  : 'center',
-        pagination: false,
+        pagination: true,
         arrows: true,
     }).mount();
 }
@@ -173,6 +128,7 @@ function addToWishlist(photo, slideElement) {
     });
 
     const wrapper = document.createElement('div');
+    wrapper.className="wish-pic"
     wrapper.style.position = 'relative';
     wrapper.appendChild(img);
     wrapper.appendChild(heartButton);
@@ -194,7 +150,7 @@ function removeFromWishlist(photo, imageElement) {
 
     const heartButton = document.createElement('button');
     heartButton.className = 'heart-button';
-    heartButton.innerHTML = '❤️';
+    heartButton.innerHTML = '<i class="fa fa-heart-o" style="font-size:24px"></i>';
     heartButton.addEventListener('click', () => {
         addToWishlist(photo, li);
     });
