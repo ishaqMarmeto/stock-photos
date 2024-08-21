@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pexels Search and Wishlist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+
+
+
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STOCK PHOTOES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/21e785dd6b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    
+    
+    <script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+"
+      rel="stylesheet"
+    />
+
+
+
+
+
+</head>
+<body>
+    <div class="container">
+
+            <div class="movie-dashboard">
+      <header class="header">
+        <!-- <img class="logo-img" src= /> -->
+         <div class="sale-cont"><h4>SUPER SALE UP TO 40% OFF</h4></div>
+         <div class="nav-cont">
+            <ul class="flex">
+                <li class="mr-2">SHOP</li>
+                <li>COMMUNITY</li>
+            </ul>
+            <img class="logo-img" src="./images/logo.png"/>
+            <ul class="flex">
+                <li class="mr-2"><i class="fa-regular fa-user"></i></li>
+                <li class="mr-2"><i class="fa-solid fa-magnifying-glass"></i></li>
+                <li><i class="fa-solid fa-cart-shopping"></i></li>
+            </ul>
+        </div>
+      </header>
+      <div class="poster-section">
+        <img class="poster-img" src="./images/Poster.png" />
+        <div class="poster-content">
+          <h1 class="poster-heading">Stock Photoes</h1>
+          <p class="poster-description">
+            John Wick is on the run after killing a member of the international
+            assassins' guild, and with a $14 million price tag on his head, he
+            is the target of hit men and women everywhere.
+          </p>
+          <button class="poster-watch-button">
+            <img
+              class="poster-watch-button-play-icon"
+              src="./images/play icon.png"
+            />Explore
+          </button>
+        </div>
+      </div>
+      </div>
+        <h1>Pexels Photo Search</h1>
+
+        <!-- Search Input -->
+        <input type="text" id="searchInput" placeholder="Search for photos...">
+        <button id="searchButton">Search</button>
+
+        <!-- First Result Section -->
+        <div id="firstResult" class="first-result">
+            <h2>Top Result</h2>
+            <img id="firstResultImage" alt="First Result">
+            <p id="firstResultPhotographer" style="display: none;"></p>
+            <button id="showAuthorButton">Show Author Details</button>
+        </div>
+
+        <!-- Splide Section for Similar Results -->
+        <div id="splide" class="splide">
+            <h2>Similar Results</h2>
+            <div class="splide__track">
+                <ul class="splide__list" id="resultsContainer"></ul>
+            </div>
+        </div>
+
+        <!-- Wishlist Section -->
+        <div id="wishlistContainer" class="wishlist">
+            <h2>Favorites</h2>
+            <div class="wishlist-items" id="wishlistItems"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Author Details -->
+    <div id="authorModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalPhotographer"></p>
+            <img id="modalImage" alt="Author Image">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
