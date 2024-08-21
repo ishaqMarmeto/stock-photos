@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // Fetch curated photos when the page loads
     fetchCuratedPhotos();
@@ -18,7 +16,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
 
 async function fetchPhotos(query) {
     const apiKey = 'qfEyIFUyWWsdKEwTODcVWz9HaHyrM7d2ldX2qEL5NghvtPL41A7tQQxg';
-    const url = `https://api.pexels.com/v1/search?query=${query}&per_page=10`;
+    const url = `https://api.pexels.com/v1/search?query=${query}&per_page=20`;
 
     try {
         const response = await fetch(url, {
@@ -33,7 +31,7 @@ async function fetchPhotos(query) {
 
         const data = await response.json();
         displayFirstResult(data.photos[0]);
-        displayResults(data.photos.slice(1));
+        displayResults(data.photos);
     } catch (error) {
         console.error('Error:', error);
         alert('Error fetching photos');
@@ -42,7 +40,7 @@ async function fetchPhotos(query) {
 
 async function fetchCuratedPhotos() {
     const apiKey = 'qfEyIFUyWWsdKEwTODcVWz9HaHyrM7d2ldX2qEL5NghvtPL41A7tQQxg';
-    const url = `https://api.pexels.com/v1/curated?per_page=10`;
+    const url = `https://api.pexels.com/v1/curated?per_page=20`;
 
     try {
         const response = await fetch(url, {
@@ -56,8 +54,9 @@ async function fetchCuratedPhotos() {
         }
 
         const data = await response.json();
+        console.log("here is data",data)
         displayFirstResult(data.photos[0]);
-        displayResults(data.photos.slice(1));
+        displayResults(data.photos);
     } catch (error) {
         console.error('Error:', error);
         alert('Error fetching curated photos');
@@ -69,7 +68,7 @@ function displayFirstResult(photo) {
     const photographer = document.getElementById('firstResultPhotographer');
     const showAuthorButton = document.getElementById('showAuthorButton');
 
-    img.src = photo.src.large;
+    img.src = photo.src.original;
     img.alt = photo.photographer;
     photographer.textContent = `Photo by ${photo.photographer}`;
 
@@ -87,7 +86,7 @@ function displayResults(photos) {
         li.className = 'splide__slide';
         
         const img = document.createElement('img');
-        img.src = photo.src.medium;
+        img.src = photo.src.original;
         img.alt = photo.photographer;
 
         const heartButton = document.createElement('button');
@@ -98,17 +97,33 @@ function displayResults(photos) {
         li.appendChild(img);
         li.appendChild(heartButton);
         heartButton.addEventListener('click', () => {
+            li.remove();
+
             addToWishlist(photo, li);
+
         });
+
+
+        li.addEventListener('click', () => {
+             
+            displayFirstResult(photo);
+
+        });
+
+
+
         resultsContainer.appendChild(li);
     });
 
     new Splide('#splide', {
         type   : 'loop',
         perPage: 3,
-        focus  : 'center',
+        // focus  : 'center',
         pagination: true,
         arrows: true,
+        autoplay: true,
+        interval: 2000,
+
     }).mount();
 }
 
@@ -116,8 +131,10 @@ function addToWishlist(photo, slideElement) {
     slideElement.remove();
 
     const wishlistContainer = document.getElementById('wishlistItems');
+    const wishhead = document.getElementById('fav');
+    wishhead.textContent=""
     const img = document.createElement('img');
-    img.src = photo.src.medium;
+    img.src = photo.src.original;
     img.alt = photo.photographer;
 
     const heartButton = document.createElement('button');
@@ -127,11 +144,19 @@ function addToWishlist(photo, slideElement) {
         removeFromWishlist(photo, img);
     });
 
+   
+
     const wrapper = document.createElement('div');
-    wrapper.className="wish-pic"
+    wrapper.className="wish-cont"
     wrapper.style.position = 'relative';
     wrapper.appendChild(img);
     wrapper.appendChild(heartButton);
+
+    wrapper.addEventListener('click', () => {
+             
+            displayFirstResult(photo);
+
+    });
 
     wishlistContainer.appendChild(wrapper);
 }
@@ -145,7 +170,7 @@ function removeFromWishlist(photo, imageElement) {
     li.className = 'splide__slide';
     
     const img = document.createElement('img');
-    img.src = photo.src.medium;
+    img.src = photo.src.original;
     img.alt = photo.photographer;
 
     const heartButton = document.createElement('button');
@@ -166,7 +191,7 @@ function openModal(photo) {
     const modalImage = document.getElementById('modalImage');
 
     modalPhotographer.textContent = `Photo by ${photo.photographer}`;
-    modalImage.src = photo.src.large;
+    modalImage.src = photo.src.original;
     modal.style.display = 'block';
 
     const closeButton = document.querySelector('.close');
