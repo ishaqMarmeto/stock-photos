@@ -95,10 +95,13 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         
 
         <!-- First Result Section -->
-        <div id="firstResult" class="first-result">
+        <div id="firstResult" class="first-result  self-start ml-2 flex flex-col md:flex-row">
             <img id="firstResultImage" alt="First Result">
-            <p id="firstResultPhotographer" style="display: none;"></p>
-            <button  id="showAuthorButton">Show Author Details</button>
+            <div class="ml-3 self-start md:self-center">
+                <p id="firstResultPhotographer" class="font-bold" style="display: block;"></p>
+                <button id="showAuthorButton">Show Author Details</button>
+            </div>
+            
         </div>
 
         <!-- Splide Section for Similar Results -->
@@ -110,10 +113,23 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
         </div>
 
         <!-- Wishlist Section -->
-        <div id="wishlistContainer" class="wishlist">
-            <h2 class="ml-3 text-2xl font-bold">Favorites : </h2>
+        <div id="wishlistContainer" class="wishlist flex flex-col">
+            <div class="flex justify-between">
+                <h2 class="ml-3 text-2xl font-bold">Favorites : </h2>
+
+                
+                <select id="sortWishlist" class="sort-dropdown">
+                    <option value="alt">Sort by Alt</option>
+                    <option value="title">Sort by Title</option>
+                </select>
+            </div>
+            
+
             <div class="wishlist-items" id="wishlistItems"> <h1 id="fav">ADD YOUR FAVOURITES HERE</h1></div>
         </div>
+
+
+        
     </div>
 
     <!-- Modal for Author Details -->
@@ -122,6 +138,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
             <span class="close">&times;</span>
             <p id="modalPhotographer"></p>
             <img id="modalImage" alt="Author Image">
+            <button ><a id="authorProfile">Visit Author Profile</a></button>
         </div>
     </div>
 
