@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // localStorage.removeItem("favorites")
     const savedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
     console.log("initial", savedFavorites);
 
@@ -142,8 +143,9 @@ function displayResults(photos) {
         li.appendChild(heartButton);
         
         heartButton.addEventListener('click', () => {
-            saveToFavoritesLocalStorage(photo);
             addToWishlist(photo);
+            saveToFavoritesLocalStorage(photo);
+            
             li.remove();
         });
 

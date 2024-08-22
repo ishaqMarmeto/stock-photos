@@ -224,7 +224,7 @@ align-items: center;
 }
 
 .wishlist-items {
-    text-align: center;
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -235,7 +235,7 @@ align-items: center;
 
 
 .wish-cont img {
-  width: 100%;
+  /* width: 100%; */
   height: 300px;
   margin: 10px;
   border-radius: 10px;
